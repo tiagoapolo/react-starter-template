@@ -1,16 +1,18 @@
+// Modules
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'index.css';
-import Providers from 'providers';
 import App from 'containers/App/App';
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from 'serviceWorker';
+
+// Provider
+import Provider from 'Provider';
 
 ReactDOM.render(
-    <Providers>
+    <Provider>
         <App />
-    </Providers>,
+    </Provider>,
     document.getElementById('root'),
-); 
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

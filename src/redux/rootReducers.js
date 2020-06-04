@@ -2,11 +2,11 @@
 import { combineReducers } from 'redux';
 
 /* Reducers */
-import examplesReducer from './examples/reducer';
+import todosReducer from './todosReducer/reducer';
 
 // all the reducers are in one place
 const rootReducers = combineReducers({
-    examplesReducer: examplesReducer,
+    todosReducer: todosReducer,
 });
 
 export default rootReducers;

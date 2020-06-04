@@ -1,7 +1,4 @@
-import 'utils/numeralLocale';
-import 'index.css';
-
-// redux
+// Modules
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -10,11 +7,12 @@ import createSagaMiddleware from 'redux-saga'; // SAGA
 import rootSagas from 'redux/rootSagas';
 
 // Styles
+import 'index.css';
 import { ThemeProvider } from 'styled-components';
-import { boticarioTheme } from 'themes';
+import { primaryTheme } from 'styles/themes';
 
 // Router
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
@@ -30,11 +28,10 @@ export default class extends Component {
         const {
             props: { children },
         } = this;
-
         return (
             <Provider store={store}>
-                <ThemeProvider theme={boticarioTheme}>
-                    <BrowserRouter>{children}</BrowserRouter>
+                <ThemeProvider theme={primaryTheme}>
+                    <Router>{children}</Router>
                 </ThemeProvider>
             </Provider>
         );

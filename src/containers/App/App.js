@@ -1,19 +1,27 @@
 // Modules
 import React from 'react';
+import styled from 'styled-components';
 
-// Containers
-import Routers from 'router/router';
-import Header from 'containers/Header/Header';
-import Footer from 'containers/Footer/Footer';
+// Routes
+import MyRouter from 'router/routes';
+import { toast } from 'react-toastify';
+toast.configure();
 
-function App() {
+const AppWrapper = styled('main')`
+    ${({ theme }) => `
+    min-height: 100vh;
+    display: flex;
+    background: ${theme.colors.grey3};
+    position: relative;
+    box-sizing: border-box;
+    align-items: center;
+`}
+`;
+
+export default function App() {
     return (
-        <>
-            <Header />
-            <Routers />
-            <Footer />
-        </>
+        <AppWrapper>
+            <MyRouter />
+        </AppWrapper>
     );
 }
-
-export default App;

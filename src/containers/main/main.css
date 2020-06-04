@@ -1,0 +1,23 @@
+.Main{
+  margin: auto;
+}
+
+.Main > .panel {
+  min-height: 0;
+  max-height: 420px;
+  min-width: 300px;
+  padding: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.Main > .panel > h1 {
+  text-align: center;
+}
+
+.Main > .panel > .list {
+  min-height: 0;
+  overflow-y: auto;
+}

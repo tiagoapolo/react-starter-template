@@ -1,0 +1,24 @@
+.Signup{
+  margin: auto;
+}
+
+.Signup > .combo {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Signup > .combo > div {
+  min-width: 300px;
+  margin-bottom: .5rem;
+}
+
+.Signup > .combo > .actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.Signup > .combo > .actions > button {
+  margin-bottom: .5rem;
+}

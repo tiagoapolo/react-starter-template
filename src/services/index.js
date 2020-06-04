@@ -1,4 +1,4 @@
 // Services
-import cepService from './cep';
+import TodoService from './todos';
 
-export { cepService };
+export { TodoService };
