@@ -37,8 +37,10 @@ export default function Login() {
                     localStorage.setItem('refresh', refresh);
                     return;
                 })
-                .then(() => setLoading(false))
-                .then(() => setTimeout(() => history.push('/main'), 300));
+                .then(() => {
+                    setTimeout(() => history.push('/main'), 1000);
+                    setTimeout(() => setLoading(false), 1000);
+                });
         } catch (error) {
             toast.error(error.response.data.text);
             setLoading(false);

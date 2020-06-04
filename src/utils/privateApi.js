@@ -1,34 +1,11 @@
 import axios from 'axios';
 
 import { BASE_URL } from 'utils/variables';
+import { getToken, getRefreshToken, getEmail } from './token';
 
 const api = axios.create({
     baseURL: BASE_URL,
 });
-
-const getToken = () => {
-    try {
-        return JSON.parse(localStorage.getItem('logged') || {}).token;
-    } catch (error) {
-        return null;
-    }
-};
-
-const getRefreshToken = () => {
-    try {
-        return localStorage.getItem('refresh');
-    } catch (error) {
-        return null;
-    }
-};
-
-const getEmail = () => {
-    try {
-        return JSON.parse(localStorage.getItem('logged') || {}).email;
-    } catch (error) {
-        return null;
-    }
-};
 
 api.interceptors.request.use(
     config => {
