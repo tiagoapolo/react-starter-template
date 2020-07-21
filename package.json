@@ -10,7 +10,7 @@
         "babel-polyfill": "^6.26.0",
         "core-js": "^3.6.4",
         "formik": "^2.1.4",
-        "lodash": "^4.17.15",
+        "lodash": "^4.17.19",
         "moment": "^2.24.0",
         "numeral": "^2.0.6",
         "path-to-regexp": "^6.1.0",
