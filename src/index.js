@@ -5,7 +5,7 @@ import App from 'containers/App/App';
 import * as serviceWorker from 'serviceWorker';
 
 // Provider
-import Provider from 'Provider';
+import Provider from './Provider';
 
 ReactDOM.render(
     <Provider>

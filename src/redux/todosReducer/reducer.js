@@ -1,5 +1,10 @@
 // Types
-import { TODOS } from './types';
+export const Types = {
+    REQUEST: 'todos/REQUEST',
+    SUCCESS: 'todos/SUCCESS',
+    FAILURE: 'todos/FAILURE',
+    RESET: 'todos/RESET',
+};
 
 const INITIAL_STATE = {
     todos: [],
@@ -9,14 +14,14 @@ const INITIAL_STATE = {
 
 const todosReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case TODOS.REQUEST:
+        case Types.REQUEST:
             return {
                 ...state,
                 isLoading: true,
                 error: null,
             };
 
-        case TODOS.SUCCESS:
+        case Types.SUCCESS:
             return {
                 ...state,
                 todos: [].concat(action.payload || []),
@@ -24,14 +29,14 @@ const todosReducer = (state = INITIAL_STATE, action) => {
                 error: null,
             };
 
-        case TODOS.FAILURE:
+        case Types.FAILURE:
             return {
                 ...state,
                 error: null,
                 isLoading: false,
             };
 
-        case TODOS.RESET:
+        case Types.RESET:
             return {
                 ...state,
                 error: null,
@@ -45,3 +50,9 @@ const todosReducer = (state = INITIAL_STATE, action) => {
 };
 
 export default todosReducer;
+
+export function fetchTodos() {
+    return {
+        type: Types.REQUEST,
+    };
+}

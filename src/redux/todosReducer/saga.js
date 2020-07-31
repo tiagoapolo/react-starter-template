@@ -1,23 +1,22 @@
 /* Modules */
-import { call, put, takeEvery } from 'redux-saga/effects';
-
-// Services
-import { fetchTodos } from '../../services/todos';
+import { call, put, all, takeLatest } from 'redux-saga/effects';
+import publicApi from '../../utils/publicApi';
 
 /* Types */
-import { TODOS } from './types';
+import { Types } from './reducer';
+
+const URL = 'http://jsonplaceholder.typicode.com';
 
 function* handleFetchTodos(action) {
     try {
-        const response = yield call(fetchTodos);
+        const response = yield call(publicApi.get, `${URL}/todos`);
 
         if (response.status === 200) {
-            yield put({ type: TODOS.SUCCESS, payload: response.data });
+            yield put({ type: Types.SUCCESS, payload: response.data });
         }
     } catch (e) {
-        console.log('error mega', e);
-        yield put({ type: TODOS.FAILURE, error: e.response });
+        yield put({ type: Types.FAILURE, error: e.response });
     }
 }
 
-export const todosSaga = [takeEvery(TODOS.REQUEST, handleFetchTodos)];
+export default all([takeLatest(Types.REQUEST, handleFetchTodos)]);
